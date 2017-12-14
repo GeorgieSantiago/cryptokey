@@ -52,8 +52,5 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    },
-    "require": {
-        "scheb/yahoo-finance-api": "^2.0"
     }
 }
