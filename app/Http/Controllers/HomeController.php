@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        return view('dashboard');
+        $coins = $this->getCoinData();
+        return view('home' , compact('coins'));
     }
 }
