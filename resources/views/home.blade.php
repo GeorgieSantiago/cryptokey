@@ -41,13 +41,7 @@ $price = $coins['PriceExample'];
       <tr>
           <td>{{$symbol}}</td>
           <td>{{$info->Id}}</td>
-          @foreach($price as $name => $value)
-            @if($name == $symbol || $name . "E" == $symbol || "BIT" . $name == $symbol)
-              <td>{{$value}}</td>
-            @else
-              <?php continue; ?>
-            @endif
-          @endforeach
+          <td id="{{$symbol}}"></td>
       </tr>
 @endforeach
 </tbody>
@@ -67,4 +61,25 @@ $('#table').basictable();
     </div>
 </div>
 </div>
+@endsection
+@section('scripts')
+  <script>
+  GetPriceStream();
+  setInterval(GetPriceStream , 10000);
+
+  function GetPriceStream(){
+  $.ajax({
+    type: "GET",
+    url: 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR',
+    dataType: 'json',
+    cache: false, // otherwise will get fresh copy every page load
+    success: function(data) {
+      console.log(data);
+      data.forEach(function(var k in data){
+        document.getElementById(symbol).innerHTML = value;
+      });
+    }
+  })
+}
+  </script>
 @endsection
