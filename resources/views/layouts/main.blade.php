@@ -198,8 +198,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</a>
 		</nav>
 		<section class="title-bar">
-			<div class="logo">
-				<h1><a href="index.html"><img src="images/logo.png" alt="" />Colored</a></h1>
+			<div class="logo ">
+				<h1><a href="index.html"><img class="img-responsive alt-logo-size" src="{{ asset('images/mainlogo.png') }}" alt="" /></a></h1>
 			</div>
 			<div class="full-screen">
 				<section class="full-top">
