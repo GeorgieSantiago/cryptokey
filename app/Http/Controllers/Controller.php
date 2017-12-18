@@ -35,6 +35,7 @@ class Controller extends BaseController
         "HistoryDays" => "https://min-api.cryptocompare.com/data/histoday",
         "MiningEquipment" => "https://www.cryptocompare.com/api/data/miningequipment/",
         "TopPairs" => "https://min-api.cryptocompare.com/data/top/pairs?fsym=BTC&limit=20",
+        "Alpha" => "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=D352FRF988GLNATA"
       ];
 
       foreach ($urls as $key => $value)
