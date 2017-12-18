@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use View;
+//use Phpml\Classification\KNearestNeighbors;
 
 class Controller extends BaseController
 {
@@ -33,7 +34,7 @@ class Controller extends BaseController
         "HistoryHours" => "https://min-api.cryptocompare.com/data/histohour",
         "HistoryDays" => "https://min-api.cryptocompare.com/data/histoday",
         "MiningEquipment" => "https://www.cryptocompare.com/api/data/miningequipment/",
-        "TopPairs" => "https://min-api.cryptocompare.com/data/top/pairs?fsym=BTC&limit=20"
+        "TopPairs" => "https://min-api.cryptocompare.com/data/top/pairs?fsym=BTC&limit=20",
       ];
 
       foreach ($urls as $key => $value)
@@ -58,6 +59,6 @@ class Controller extends BaseController
 */
     private function StaticStore()
     {
-
+        return false;
     }
 }

@@ -68,16 +68,12 @@ $price = $coins['PriceExample'];
   function GetPriceStream(){
   $.ajax({
     type: "GET",
-    url: 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR',
+    url: 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=D352FRF988GLNATA',
     dataType: 'json',
     cache: false, // otherwise will get fresh copy every page load
     success: function(data) {
-      console.log(data);
-      var k;
-      data.forEach(function(k in data){
-        document.getElementById(symbol).innerHTML = value;
-      });
-      console.log(k);
+				console.log("GET Request returned success!");
+				console.log(data);
     }
   })
 }
