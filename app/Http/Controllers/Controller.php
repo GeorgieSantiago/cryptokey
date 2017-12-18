@@ -28,14 +28,15 @@ class Controller extends BaseController
       */
       $urls = [
         "CoinList" => "https://www.cryptocompare.com/api/data/coinlist/",
-        "PriceExample" => "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR",
+//        "CoinList" => "https://bravenewcoin-v1.p.mashape.com/digital-currency-symbols",
+//        "PriceExample" => "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR",
         "PriceHistory" => "https://min-api.cryptocompare.com/data/pricehistorical",
-        "HistoryMinutes" => "https://min-api.cryptocompare.com/data/histominute",
-        "HistoryHours" => "https://min-api.cryptocompare.com/data/histohour",
-        "HistoryDays" => "https://min-api.cryptocompare.com/data/histoday",
-        "MiningEquipment" => "https://www.cryptocompare.com/api/data/miningequipment/",
+//        "HistoryMinutes" => "https://min-api.cryptocompare.com/data/histominute",
+//        "HistoryHours" => "https://min-api.cryptocompare.com/data/histohour",
+//        "HistoryDays" => "https://min-api.cryptocompare.com/data/histoday",
+//        "MiningEquipment" => "https://www.cryptocompare.com/api/data/miningequipment/",
         "TopPairs" => "https://min-api.cryptocompare.com/data/top/pairs?fsym=BTC&limit=20",
-        "Alpha" => "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=D352FRF988GLNATA"
+//        "Alpha" => "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=D352FRF988GLNATA"
       ];
 
       foreach ($urls as $key => $value)

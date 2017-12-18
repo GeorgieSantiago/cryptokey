@@ -19,7 +19,7 @@
 					<?php
 
 $data = $coins['CoinList']->Data;
-$price = $coins['PriceExample'];
+//$price = $coins['PriceExample'];
 ?>
 					<div class="table-heading">
 						<h2>All Coins</h2>
@@ -32,10 +32,10 @@ $price = $coins['PriceExample'];
 									<tr>
 										<th>Coin Symbol</th>
 										<th>Id</th>
-										<th>Price</th>
-										<th>data</th>
-										<th>data</th>
-										<th>data</th>
+										<th>Price(BTC)</th>
+										<th>Price USD</th>
+										<th>Volume USD</th>
+										<th>Rank</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -45,6 +45,11 @@ $price = $coins['PriceExample'];
 										<td>{{$symbol}}</td>
 										<td>{{$info->Id}}</td>
 										<td id="{{$symbol}}"></td>
+										<td id="{{$symbol . 'USD'}}"></td>
+										<td id="{{$symbol . '24h_volume_usd'}}"></td>
+										<td id="{{$symbol . 'Rank'}}"></td>
+
+
 									</tr>
 @endforeach
 
@@ -68,12 +73,30 @@ $price = $coins['PriceExample'];
   function GetPriceStream(){
   $.ajax({
     type: "GET",
-    url: 'https://api.coinmarketcap.com/v1/prices/',
+    url: 'https://api.coinmarketcap.com/v1/ticker/',
     dataType: 'json',
     cache: false, // otherwise will get fresh copy every page load
     success: function(data) {
-				datastream = JSON.stringify(data);
+				datastream = data;
 				console.log(data);
+				for(var i = 0;i < datastream.length;i++){
+					console.log(datastream[i]);
+					var target = document.getElementById(datastream[i].symbol);
+					if(target)
+					{
+						target.innerHTML = datastream[i].price_btc;
+						document.getElementById(datastream[i].symbol + "USD").innerHTML = datastream[i].price_usd;
+						document.getElementById(datastream[i].symbol + "24h_volume_usd").innerHTML = datastream[i].price_usd;
+						document.getElementById(datastream[i].symbol + "Rank").innerHTML = datastream[i].rank;
+
+
+					} else {
+						target.innerHTML = "-";
+						document.getElementById(datastream[i].symbol + "USD").innerHTML = "-";
+						document.getElementById(datastream[i].symbol + "24h_volume_usd").innerHTML = "-";
+						document.getElementById(datastream[i].symbol + "Rank").innerHTML = "-";
+					}
+				}
 			}})
     }
 
