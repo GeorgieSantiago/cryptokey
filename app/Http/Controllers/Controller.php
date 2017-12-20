@@ -27,16 +27,8 @@ class Controller extends BaseController
         Docs for min-api : https://min-api.cryptocompare.com/
       */
       $urls = [
-        "CoinList" => "https://www.cryptocompare.com/api/data/coinlist/",
-//        "CoinList" => "https://bravenewcoin-v1.p.mashape.com/digital-currency-symbols",
-//        "PriceExample" => "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR",
-        "PriceHistory" => "https://min-api.cryptocompare.com/data/pricehistorical",
-//        "HistoryMinutes" => "https://min-api.cryptocompare.com/data/histominute",
-//        "HistoryHours" => "https://min-api.cryptocompare.com/data/histohour",
-//        "HistoryDays" => "https://min-api.cryptocompare.com/data/histoday",
-//        "MiningEquipment" => "https://www.cryptocompare.com/api/data/miningequipment/",
-        "TopPairs" => "https://min-api.cryptocompare.com/data/top/pairs?fsym=BTC&limit=20",
-//        "Alpha" => "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=D352FRF988GLNATA"
+          "Currency" => "https://bittrex.com/api/v1.1/public/getcurrencies",
+          "Market" => "https://bittrex.com/api/v1.1/public/getmarkets"
       ];
 
       foreach ($urls as $key => $value)
