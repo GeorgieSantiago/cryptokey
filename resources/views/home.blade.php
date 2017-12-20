@@ -16,10 +16,9 @@
                     @endif
 
 					<!---->
-					<?php
-
-$data = $coins['CoinList']->Data;
-//$price = $coins['PriceExample'];
+<?php
+$currency = $coins["Currency"]->result;
+$market = $coins["Market"]->result;
 ?>
 					<div class="table-heading">
 						<h2>All Coins</h2>
@@ -39,19 +38,27 @@ $data = $coins['CoinList']->Data;
 									</tr>
 								</thead>
 								<tbody>
-@foreach($data as $symbol => $info)
-
+@for($n = 0;$n < count($currency);$n++)
+		<?php
+			for($t = 0;$t < count($market);$t++)
+			{
+				if($market[$t]->MarketCurrency == $currency[$n]->Currency && isset($market[$t]))
+				{
+					$currentMarket = $market[$t];
+				} else {
+					continue;
+				}
+			}
+		?>
 									<tr>
-										<td>{{$symbol}}</td>
-										<td>{{$info->Id}}</td>
-										<td id="{{$symbol}}"></td>
-										<td id="{{$symbol . 'USD'}}"></td>
-										<td id="{{$symbol . '24h_volume_usd'}}"></td>
-										<td id="{{$symbol . 'Rank'}}"></td>
-
-
+										<td><img class="coin-logo" style="max-width: 10%;" src="{{$currentMarket->LogoUrl}}" id="{{$currentMarket->MarketCurrency}}" /></td>
+										<td id="{{$currency[$n]->Currency}}">{{$currency[$n]->Currency}}</td>
+										<td>DataPoint</td>
+										<td>DataPoint</td>
+										<td>DataPoint</td>
+										<td id="updated"></td>
 									</tr>
-@endforeach
+@endfor
 
 								</tbody>
 							</table>
@@ -67,53 +74,8 @@ $data = $coins['CoinList']->Data;
 @section('scripts')
 
 <script>
-  GetPriceStream();
-  setInterval(GetPriceStream , 30000);
-
-  function GetPriceStream(){
-  $.ajax({
-    type: "GET",
-    url: 'https://api.coinmarketcap.com/v1/ticker/',
-    dataType: 'json',
-    cache: false, // otherwise will get fresh copy every page load
-    success: function(data) {
-				datastream = data;
-				console.log(data);
-				for(var i = 0;i < datastream.length;i++){
-					console.log(datastream[i]);
-					var target = document.getElementById(datastream[i].symbol);
-					if(target)
-					{
-						target.innerHTML = datastream[i].price_btc;
-						document.getElementById(datastream[i].symbol + "USD").innerHTML = datastream[i].price_usd;
-						document.getElementById(datastream[i].symbol + "24h_volume_usd").innerHTML = datastream[i].price_usd;
-						document.getElementById(datastream[i].symbol + "Rank").innerHTML = datastream[i].rank;
-
-
-					} else {
-						target.innerHTML = "-";
-						document.getElementById(datastream[i].symbol + "USD").innerHTML = "-";
-						document.getElementById(datastream[i].symbol + "24h_volume_usd").innerHTML = "-";
-						document.getElementById(datastream[i].symbol + "Rank").innerHTML = "-";
-					}
-				}
-			}})
-    }
-
-
-
-
-/*Bullshit helper function*/
-		function getTime()
-		{
-			now = new Date();
-year = "" + now.getFullYear();
-month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
-day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
-hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
-minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
-second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
-return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
-		}
+/*  GetPriceStream();
+  setInterval(GetPriceStream , 1000);
+*/
   </script>
 @endsection

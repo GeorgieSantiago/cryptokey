@@ -48,12 +48,12 @@
               <form>
                 <div class="form-group">
                   <label for="recipient-name" class="form-control-label">Enter you e-mail to get our newsletter</label>
-                  <input type="text" class="form-control" id="recipient-name" placeholder="your-name@example.com">
+                  <input type="text" class="form-control" id="email" placeholder="your-name@example.com">
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button href="{{route('home')}}" type="button" class="btn btn-default">Subscribe</button>
+              <button id="subscribe" type="button" class="btn btn-default">Subscribe</button>
             </div>
           </div>
         </div>
@@ -64,5 +64,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/main.js')}}"></script>
+    <script src="{{ asset('js/helper.js')}}"></script>
+
+    <script>
+      var trigger = document.getElementById("subscribe");
+      trigger.addEventListener('click' , subscriptionTrigger);
+    </script>
   </body>
 </html>

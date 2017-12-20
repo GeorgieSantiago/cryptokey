@@ -27,6 +27,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{ asset('js/modernizr.js') }}"></script>
 <script src="{{ asset('js/jquery.cookie.js') }}"></script>
 <script src="{{ asset('js/screenfull.js') }}"></script>
+
+<style>
+.coin-logo{
+      display: inline-block;
+      height: auto;
+      padding: 4px;
+      line-height: 1.42857143;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      -webkit-transition: all .2s ease-in-out;
+      -o-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;  max-width: 10% !important;
+}
+</style>
 		<script>
 		$(function () {
 			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
@@ -49,85 +64,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<nav class="main-menu">
 		<ul>
 			<li>
-				<a href="index.html">
+				<a href="{{ route('home')}}">
 					<i class="fa fa-home nav_icon"></i>
 					<span class="nav-text">
 					Dashboard
 					</span>
 				</a>
 			</li>
-			<li class="has-subnav">
-				<a href="javascript:;">
-				<i class="fa fa-cogs" aria-hidden="true"></i>
-				<span class="nav-text">
-					UI Components
-				</span>
-				<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
+			<li>
+				<a href="{{ route('home')}}">
+					<i class="fa fa-cogs nav_icon"></i>
+					<span class="nav-text">
+						Bitcoin
+					</span>
 				</a>
-				<ul>
-					<li>
-					<a class="subnav-text" href="buttons.html">
-					Buttons
-					</a>
-					</li>
-					<li>
-					<a class="subnav-text" href="grids.html">
-					Grids
-					</a>
-					</li>
-				</ul>
 			</li>
 			<li class="has-subnav">
 				<a href="javascript:;">
 				<i class="fa fa-check-square-o nav_icon"></i>
 				<span class="nav-text">
-				Forms
+					MyBittrix
 				</span>
 				<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
 				</a>
 				<ul>
 					<li>
-						<a class="subnav-text" href="inputs.html">Inputs</a>
+						<a class="subnav-text" href="inputs.html">Wallet</a>
 					</li>
 					<li>
-						<a class="subnav-text" href="validation.html">Form Validation</a>
+						<a class="subnav-text" href="validation.html">Sync</a>
 					</li>
 				</ul>
 			</li>
-			<li class="has-subnav">
-				<a href="javascript:;">
-					<i class="fa fa-file-text-o nav_icon"></i>
-						<span class="nav-text">Pages</span>
-					<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
+			<li>
+				<a href="{{ route('home')}}">
+					<i class="fa fa-home nav_icon"></i>
+					<span class="nav-text">
+						Crypto Bot
+					</span>
 				</a>
-				<ul>
-					<li>
-						<a class="subnav-text" href="gallery.html">
-							Image Gallery
-						</a>
-					</li>
-					<li>
-						<a class="subnav-text" href="calendar.html">
-							Calendar
-						</a>
-					</li>
-					<li>
-						<a class="subnav-text" href="signup.html">
-							Sign Up Page
-						</a>
-					</li>
-					<li>
-						<a class="subnav-text" href="login.html">
-							Login Page
-						</a>
-					</li>
-				</ul>
 			</li>
 			<li>
 				<a href="charts.html">
 					<i class="fa fa-bar-chart nav_icon"></i>
 					<span class="nav-text">
-						Charts
+						My Subscription
 					</span>
 				</a>
 			</li>
@@ -135,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="typography.html">
 					<i class="icon-font nav-icon"></i>
 					<span class="nav-text">
-					Typography
+						MenuItem
 					</span>
 				</a>
 			</li>
@@ -143,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="tables.html">
 					<i class="icon-table nav-icon"></i>
 					<span class="nav-text">
-					Tables
+						MenuItem
 					</span>
 				</a>
 			</li>
@@ -151,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="maps.html">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
 					<span class="nav-text">
-					Maps
+						MenuItem
 					</span>
 				</a>
 			</li>
@@ -159,22 +140,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="error.html">
 					<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
 					<span class="nav-text">
-					Error Page
+						MenuItem
 					</span>
 				</a>
 			</li>
 			<li class="has-subnav">
 				<a href="javascript:;">
 					<i class="fa fa-list-ul" aria-hidden="true"></i>
-					<span class="nav-text">Extras</span>
+					<span class="nav-text">MenuItem</span>
 					<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
 				</a>
 				<ul>
 					<li>
-						<a class="subnav-text" href="faq.html">FAQ</a>
+						<a class="subnav-text" href="faq.html">MenuItem</a>
 					</li>
 					<li>
-						<a class="subnav-text" href="blank.html">Blank Page</a>
+						<a class="subnav-text" href="blank.html">MenuItem</a>
 					</li>
 				</ul>
 			</li>
@@ -222,7 +203,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<ul class="dropdown-menu anti-dropdown-menu w3l-msg">
 									<li>
 										<div class="notification_header">
-											<h3>You have 3 new messages</h3>
+											@if(isset($messages))
+											<h3>Messages Present</h3>
+											@else
+											<h3>No New Messages</h3>
+											@endif
 										</div>
 									</li>
 									<li><a href="#">
@@ -361,7 +346,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<ul class="dropdown-menu drp-mnu">
 									<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
 									<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
-									<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+									<li> <a href="{{ route('logout')}}"><i class="fa fa-sign-out"></i> Logout</a> </li>
 								</ul>
 							</li>
 						</ul>
@@ -391,6 +376,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</section>
 	<script src="{{ asset('js/bootstrap.js') }}"></script>
 	<script src="{{ asset('js/proton.js') }}"></script>
+	<script src="{{ asset('js/helper.js')}}"></script>
 	@yield('scripts')
 </body>
 </html>
