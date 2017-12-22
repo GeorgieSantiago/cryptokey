@@ -39,7 +39,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       border-radius: 4px;
       -webkit-transition: all .2s ease-in-out;
       -o-transition: all .2s ease-in-out;
-      transition: all .2s ease-in-out;  max-width: 10% !important;
+      transition: all .2s ease-in-out;
+       max-width: 35% !important;
+}
+
+#lol{
+  padding-left: 20px;
 }
 </style>
 		<script>
@@ -72,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</a>
 			</li>
 			<li>
-				<a href="{{ route('home')}}">
+				<a href="{{ route('btc.index')}}">
 					<i class="fa fa-cogs nav_icon"></i>
 					<span class="nav-text">
 						Bitcoin

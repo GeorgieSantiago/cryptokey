@@ -29,9 +29,10 @@
 										<th>Coin Symbol</th>
 										<th>Id</th>
 										<th>Price(BTC)</th>
-										<th>Price USD</th>
 										<th>Volume USD</th>
-										<th>Rank</th>
+										<th>High</th>
+										<th>Low</th>
+										<th>Created At</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -52,10 +53,11 @@
 									<tr>
 										<td><img class="coin-logo" style="max-width: 10%;" src="{{$currentMarket->LogoUrl}}" id="{{$currentMarket->MarketCurrency}}" /></td>
 										<td id="{{$currency[$n]->Currency}}">{{$currency[$n]->Currency}}</td>
-										<td>DataPoint</td>
-										<td>DataPoint</td>
-										<td>DataPoint</td>
-										<td id="updated"></td>
+										<td>{{$currentSummary->Last}}</td>
+										<td>{{$currentSummary->BaseVolume}}</td>
+										<td>{{$currentSummary->High}}</td>
+										<td>{{$currentSummary->Low}}</td>
+										<td>{{$currentSummary->Created}}</td>
 									</tr>
 @endfor
 
