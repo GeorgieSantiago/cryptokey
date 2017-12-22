@@ -10,14 +10,45 @@ function getTime()
   return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 }
 
-function GetPriceStream(){
+function GetPriceStream(urlstream){
 $.ajax({
   type: "GET",
-  url: 'https://api.coinmarketcap.com/v1/ticker/',
+  url: urlstream,
   dataType: 'json',
   cache: false, // otherwise will get fresh copy every page load
   success: function(data) {
-      datastream = data;
+    $('#graph2').graphify({
+      start: 'donut',
+      obj: {
+        id: 'lol',
+        legend: false,
+        showPoints: true,
+        width: 775,
+        legendX: 450,
+        pieSize: 200,
+        shadow: true,
+        height: 400,
+        animations: true,
+        x: ["USD", "EUR", "GBP"],
+        points: [data.bpi.USD.rate_float, data.bpi.EUR.rate_float, data.bpi.GBP.rate_float],
+        xDist: 90,
+        scale: 2500,
+        yDist: 35,
+        grid: false,
+        xName: 'Year',
+        dataNames: ['Amount'],
+        design: {
+          lineColor: 'red',
+          tooltipFontSize: '20px',
+          pointColor: 'red',
+          barColor: 'blue',
+          areaColor: 'orange'
+        }
+      }
+    });
+
+
+/*      datastream = data;
       console.log(data);
       for(var i = 0;i < datastream.length;i++){
         console.log(datastream[i]);
@@ -35,7 +66,7 @@ $.ajax({
           document.getElementById(datastream[i].symbol + "24h_volume_usd").innerHTML = "-";
           document.getElementById(datastream[i].symbol + "Rank").innerHTML = "-";
         }
-      }
+      }*/
     }})
   }
 
