@@ -16,10 +16,7 @@
                     @endif
 
 					<!---->
-<?php
-$currency = $coins["Currency"]->result;
-$market = $coins["Market"]->result;
-?>
+
 					<div class="table-heading">
 						<h2>All Coins</h2>
 					</div>
@@ -45,9 +42,11 @@ $market = $coins["Market"]->result;
 				if($market[$t]->MarketCurrency == $currency[$n]->Currency && isset($market[$t]))
 				{
 					$currentMarket = $market[$t];
+					$currentSummary = $summary[$t];
 				} else {
 					continue;
 				}
+				//dd($currentSummary);
 			}
 		?>
 									<tr>

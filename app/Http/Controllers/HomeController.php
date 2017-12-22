@@ -25,6 +25,9 @@ class HomeController extends Controller
     public function index()
     {
         $coins = $this->getCoinData();
-        return view('home' , compact('coins'));
+		$currency = $coins["Currency"]->result;
+		$market = $coins["Market"]->result;
+		$summary = $coins["Summary"]->result;
+        return view('home' , compact('coins', 'currency' , 'market', 'summary'));
     }
 }

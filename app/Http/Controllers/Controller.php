@@ -28,22 +28,28 @@ class Controller extends BaseController
       */
       $urls = [
           "Currency" => "https://bittrex.com/api/v1.1/public/getcurrencies",
-          "Market" => "https://bittrex.com/api/v1.1/public/getmarkets"
+          "Market" => "https://bittrex.com/api/v1.1/public/getmarkets",
+		  "Summary" => "https://bittrex.com/api/v1.1/public/getmarketsummaries"
       ];
 
       foreach ($urls as $key => $value)
       {
+
         $result = file_get_contents($value);
         $data = json_decode($result);
+		
         if($data == null)
         {
           session_start();
           $_SESSION['error']  = $key . " " . $value . " Has returned null";
         }
+		
+
         $coins[$key] = $data;
       }
 
-      $this->StaticStore();
+      $this->StaticStore($coins);
+	  
       return $coins;
     }
 
@@ -51,7 +57,7 @@ class Controller extends BaseController
   This method is for storing static values in the db for quicker query.
   TODO
 */
-    private function StaticStore()
+    private function StaticStore($coins)
     {
         return false;
     }
