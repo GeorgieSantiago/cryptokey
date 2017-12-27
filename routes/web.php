@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/email' , 'EmailController@create')->name('email');
 
 Route::resource('/btc' , 'BtcController');
+
+Route::resource('/trend' , 'TrendController');

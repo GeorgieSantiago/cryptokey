@@ -109,23 +109,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</span>
 				</a>
 			</li>
-			<li>
-				<a href="charts.html">
-					<i class="fa fa-bar-chart nav_icon"></i>
-					<span class="nav-text">
-						My Subscription
-					</span>
-				</a>
-			</li>
-			<li>
-				<a href="typography.html">
+      <li>
+				<a href="{{route('trend.index')}}">
 					<i class="icon-font nav-icon"></i>
 					<span class="nav-text">
-						MenuItem
+						Trending
 					</span>
 				</a>
 			</li>
 			<li>
+        <li>
+          <a href="charts.html">
+            <i class="fa fa-bar-chart nav_icon"></i>
+            <span class="nav-text">
+              My Subscription
+            </span>
+          </a>
+        </li>
+        <li>
 				<a href="tables.html">
 					<i class="icon-table nav-icon"></i>
 					<span class="nav-text">
